@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Page</title>
+</head>
+<body>
+    
+    <table>
+        <tr>
+            <th>상호명</th>
+            <th>주소</th>
+            <th>카테고리</th>
+            <th></th>
+        </tr>
+        {% for name, address, category in data %}
+        <tr>
+            <td>{{ name }}</td>
+            <td>{{ address }}</td>
+            <td>{{ category }}</td>
+            <td>
+                <form action="/edit_name" method="post">
+                    <input type="hidden" name="old_name" value="{{ name }}">
+                    <input type="text" name="new_name" placeholder="변경할 상호명">
+                    <input type="submit" value="Update Name">
+                </form>
+                <form action="/edit_address" method="post">
+                    <input type="hidden" name="name" value="{{ name }}">
+                    <input type="text" name="new_address" placeholder="변경할 주소">
+                    <input type="submit" value="Update Address">
+                </form>
+                <form action="/edit_category" method="post">
+                    <input type="hidden" name="name" value="{{ name }}">
+                    <input type="text" name="new_category" placeholder="변경할 카테고리">
+                    <input type="submit" value="Update Category">
+                </form>
+                <form action="/delete" method="post">
+                    <input type="hidden" name="name" value="{{ name }}">
+                    <input type="submit" value="삭제">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/admin">관리자 페이지</a>
+    <br>
+</body>
+</html>
