@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>경남정보대 뭐먹지?</title>
+</head>
+<body>
+	<div id="map" style="width:750px;height:500px;"></div>
+	<script type="text/javascript" src="{{ API_KEY }}"></script>
+	<!-- <script src="../static/address_marker.js"></script> 해당 코드는 live server 에서 동작할 때 사용되는 줄입니다. -->
+	<script src="{{ url_for('static', filename = 'address_marker.js') }}"></script>
+	<a href="/admin">관리자 페이지</a>
+</body>
+</html>	
